@@ -1,3 +1,4 @@
+2019年12月31日 初始化环境发生变更
 # easyreport
 
 ## Project setup
