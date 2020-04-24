@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <el-menu
-      :unique-opened=true
+      :unique-opened="true"
       :router="true"
       default-active="$route.path"
       class="el-menu-vertical-demo"
@@ -15,11 +15,15 @@
         <el-submenu :index="item.path" :key="item.path">
           <template slot="title">
             <i :class="item.icon"></i>
-            <span slot="title">{{item.name}}</span>
+            <span slot="title">{{ item.name }}</span>
           </template>
           <!-- <router-link v-for="(citem,cindex) in item.children" :to="citem.path" :key="cindex"> -->
-          <el-menu-item v-for="(citem,cindex) in item.children" :key="cindex" :index="citem.path">
-            <span slot="title">{{citem.name}}</span>
+          <el-menu-item
+            v-for="(citem, cindex) in item.children"
+            :key="cindex"
+            :index="citem.path"
+          >
+            <span slot="title">{{ citem.name }}</span>
           </el-menu-item>
           <!-- </router-link> -->
         </el-submenu>
@@ -48,7 +52,17 @@ export default {
             { path: "/car3g/taizhang_car3g_qd", name: "车险承保台账" },
             { path: "/car3g/dianzibaodan_car3g_qd", name: "车险电子保单" },
             // { path: "/car3g/cheshang_car3g_qd", name: "车商承保台账" },
-            { path: "/car3g/bijia_car3g_qd", name: "车险承保比价表" },
+            { path: "/car3g/bijia_car3g_qd", name: "车险承保比价表" }
+          ]
+        },
+        {
+          icon: "el-icon-document",
+          path: "/carlp",
+          name: "车险理赔",
+          children: [
+            { path: "/carlp/carlp_recoverlist", name: "追偿案件清单" },
+            { path: "/carlp/carlp_reclaimlist", name: "损余回收清单" },
+            { path: "/carlp/carlp_damagelist", name: "出险案件清单" }
           ]
         },
         {
@@ -60,7 +74,7 @@ export default {
             { path: "/sff/sffyssxf", name: "应收手续费" },
             { path: "/sff/sffrecpremlist", name: "应收保费清单" },
             { path: "/sff/sffrecpremBBRlist", name: "未逾期未实收(BBR)" },
-            { path: "/sff/sffrefundlist", name: "退票信息" },
+            { path: "/sff/sffrefundlist", name: "退票信息" }
           ]
         },
         {
@@ -69,7 +83,7 @@ export default {
           name: "非车查询",
           children: [
             { path: "/prpall/prpcbqd_ZDGlist", name: "教职员工校责险清单" },
-            { path: "/prpall/prpcbqd_ZCJlist", name: "校(园)方责任保险" },
+            { path: "/prpall/prpcbqd_ZCJlist", name: "校(园)方责任保险" }
           ]
         }
       ]
